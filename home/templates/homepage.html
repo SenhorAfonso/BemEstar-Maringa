@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <meta charset="UTF-8">              
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/homepage.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald&display=swap">
+{% endblock %}
+
+{% block 'body' %}
+
+    <div class="content">
+        <div style="overflow: hidden;">
+            <img src="Imagens/Logo.png" style="float: left; margin-right: 10px;">
+            <div style="text-align: center;">
+                <p><strong>TELEMEDICINA</strong></p>
+                <p><strong>E-COMERCE</strong></p>
+                <p><strong>PRONTUÁRIO DIGITAL</strong></p>
+                <p><strong>BEM-ESTAR</strong></p>
+                <div style="float: right;">
+                    <p><strong>LOGIN</strong></p>
+                    <p><strong>CADASTRE-SE</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="imagemPrincipal">
+        <div style="text-align: center; margin-top: 700px;">
+            <h1 style="color: white; font-size: 80px;">BEM-ESTAR MARINGÁ</h1>
+            <h3 style="color: white;">o controle da saude na palma da sua mão</h2>
+        </div>
+        <div style="text-align: center;">
+            <p style="color: white;">CONHEÇA NOSSOS SERVIÇOS</p>
+        </div>
+        <div style="text-align: center;">
+            <div class="image-container">
+                <img src="Imagens/image_2.png" alt="" class="imagem">
+                <p style="font-size: 40px; color: white">TELEMEDICINA</p>
+            </div>
+            <div class="image-container">
+                <img src="Imagens/image_3.png" alt="" class="imagem">
+                <p style="font-size: 40px; color: white">PRONTUÁRIO DIGITAL</p>
+            </div>
+            <div class="image-container">
+                <img src="Imagens/image_4.png" alt="" class="imagem">
+                <p style="font-size: 40px; color: white">E-COMMERSE</p>
+            </div>
+        </div>
+        <div style="text-align: center; height: 50px;">
+            <div class="image-container">
+                <img src="Imagens/image_5.png" alt="" class="imagem">
+                <p style="font-size: 40px; color: white">CHAT</p>
+            </div>
+            <div class="image-container">
+                <img src="Imagens/image_6.png" alt="" class="imagem">
+                <p style="font-size: 40px; color: white">BEM-ESTAR</p>
+            </div>
+            <div class="image-container">
+                <img src="Imagens/ret_prontuario.png" alt="" class="imagem">
+                <p style="font-size: 40px; color: white">AGENDA</p>
+            </div>
+        </div>
+    </div>
+    <div class="imagemMedicos">
+        <div style="text-align: center; margin-top: 735px;">
+            <h1 style="color: white; font-size: 80px;">
+                CONHEÇA NOSSAS ESPECIALIDADES</h1>
+        </div>
+        <div class="espacoBranco">
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+                <br>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+                <br>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+                <br>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+                <br>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+            <p> ESPECIALIDADES</p>
+        </div>
+        <div class="barrabranca">
+        </div>
+        <div style="height: 640px;" class="espacoBranco">
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="{{ message.tags }}" style="top: 150px">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+
+            <div class=container1>
+                <div class=espacamento>
+                <form action="{% url 'realizar_cadastro' %}" method="post"> {% csrf_token %}
+                    <input type="text" class="barra" id='input-email-signup' name='input-email-signup'><span  class="fonte">INSIRA SEU MELHOR E-MAIL</span>
+                </div>
+                <div class=espacamento2>
+                    <input type="text" class="barra2" id='input-password-signup' name='input-password-signup'><span  class="fonte">INSIRA SUA SENHA</span>
+                </div>
+                <div class=espacamento3>
+                    <input type="text" class="barra3" id='input-confirm-password-signup' name='input-confirm-password-signup'><span  class="fonte">REPITA SUA SENHA</span>
+                </div>
+                <div class=espacamento4>
+                    <input type="submit" class="barra4">
+                </div>
+                </form>
+              </div>
+        <div class="areaRegistro">    
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

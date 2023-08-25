@@ -1,0 +1,228 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #221E3D;
+}
+
+p {
+    display:  inline-block;
+    margin-right: 35px;
+    font-size: 20px;
+    font-family:Oswald;
+}
+
+h1{
+    font-family:Oswald;
+    margin: 1px;
+}
+
+h2{
+    font-family:Oswald;
+}
+
+h3{
+    font-family:Arial, Helvetica, sans-serif;
+    height: 200px;
+}
+
+.imagem{
+        width:325px;
+        height:350px;
+        left:150px;
+        top:0px;
+        border-top-left-radius:20px;
+        border-top-right-radius:20px;
+        border-bottom-left-radius:20px;
+        border-bottom-right-radius:20px;
+        background-repeat:no-repeat;
+        background-size:cover;
+        margin-right: 120px;
+        margin-top: 120px;
+        display: block;
+    }
+
+.content {
+    position: relative;
+    z-index: 2;
+    background-color: white; /* Início branco da página */
+}
+
+.imagemPrincipal{
+    box-shadow:0px 59px 69px rgba(127.58724331855774, 183.19590657949448, 56.81255266070366, 0.75);
+	width:1519px;
+	height: 800px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	background-image:url(Imagens/imagemPrincripal.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+.image-container {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    display: inline-block;
+	background-size:cover;
+  }
+
+.imagemMedicos{
+    background-image:url(Imagens/image_1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:1519px;
+	height: 800px;
+    top:3000px;
+    position: absolute;
+    border-radius:20px;
+}
+
+.espacoBranco{ 
+	text-align: center;
+    margin-top: 20px;
+    border: 2px solid #000000;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.barrabranca {
+    height: 20px;
+    background-color: white;
+    margin-top: 40px;
+  }
+
+  .areaRegistro { 
+	width:640px;
+	height:640px;
+	position:absolute;
+	left:750px;
+	top:1400px;
+	background-image:url(Imagens/footer_logo.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+.container1 { 
+	width:660px;
+	height:520px;
+	position:absolute;
+}
+.espacamento { 
+	width:653px;
+	height:118px;
+	position:absolute;
+	left:8px;
+	top:0px;
+}
+.espacamento2 { 
+	width:653px;
+	height:122px;
+	position:absolute;
+	left:8px;
+	top:154px;
+}
+.espacamento3 { 
+	width:653px;
+	height:127px;
+	position:absolute;
+	left:0px;
+	top:297px;
+}
+.espacamento4 { 
+	width:283px;
+	height:62px;
+	position:absolute;
+	left:0px;
+	top:460px;
+}
+.barra { 
+	background-color:rgba(255, 255, 255, 1);
+	width:653px;
+	height:62px;
+	position:absolute;
+	left:0px;
+	top:56px;
+	border-top-left-radius:20px;
+	border-top-right-radius:20px;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;
+}
+.barra { 
+	border:3px solid rgba(0, 0, 0, 1);
+}
+
+
+.barra2 { 
+	background-color:rgba(255, 255, 255, 1);
+	width:653px;
+	height:62px;
+	position:absolute;
+	left:0px;
+	top:60px;
+	border-top-left-radius:20px;
+	border-top-right-radius:20px;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;
+}
+.barra2 { 
+	border:3px solid rgba(0, 0, 0, 1);
+}
+
+.barra3 { 
+	background-color:rgba(255, 255, 255, 1);
+	width:653px;
+	height:62px;
+	position:absolute;
+	left:0px;
+	top:65px;
+	border-top-left-radius:20px;
+	border-top-right-radius:20px;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;
+}
+.barra3 { 
+	border:3px solid rgba(0, 0, 0, 1);
+}
+
+.barra4 { 
+	background-color:rgba(255, 255, 255, 1);
+	width:283px;
+	height:62px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	border-top-left-radius:20px;
+	border-top-right-radius:20px;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;
+}
+.barra4 { 
+	border:3px solid rgba(0, 0, 0, 1);
+}
+.fonte { 
+	color:rgba(0, 0, 0, 1);
+	width:500px;
+	height:68px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	font-family:Oswald;
+	text-align:left;
+	font-size:36px;
+	letter-spacing:0;
+}
+.fonte2 { 
+	color:rgba(0, 0, 0, 1);
+	width:182px;
+	height:53px;
+	position:absolute;
+	left:51px;
+	top:4px;
+	font-family:Oswald;
+	text-align:left;
+	font-size:36px;
+	letter-spacing:0;
+}
