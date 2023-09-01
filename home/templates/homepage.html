@@ -15,7 +15,7 @@
 
     <div class="content">
         <div style="overflow: hidden;">
-            <img src="Imagens/Logo.png" style="float: left; margin-right: 10px;">
+            <img src="{% static 'home/img/logo_header.png' %}" style="float: left; margin-right: 10px;">
             <div style="text-align: center;">
                 <p><strong>TELEMEDICINA</strong></p>
                 <p><strong>E-COMERCE</strong></p>
@@ -28,82 +28,100 @@
             </div>
         </div>
     </div>
-    <div class="imagemPrincipal">
-        <div style="text-align: center; margin-top: 700px;">
-            <h1 style="color: white; font-size: 80px;">BEM-ESTAR MARINGÁ</h1>
-            <h3 style="color: white;">o controle da saude na palma da sua mão</h2>
-        </div>
-        <div style="text-align: center;">
-            <p style="color: white;">CONHEÇA NOSSOS SERVIÇOS</p>
-        </div>
+
+    <div class="imagemPrincipal"></div>
+
+    <div style="text-align: center; margin-top: 700px;">
+        <h1 class="homepage-title"> BEM-ESTAR MARINGÁ</h1>
+        <h3 class="homepage-subtitle"> o controle da saude na palma da sua mão</h2>
+    </div>
+
+    <div style="text-align: center;">
+        <p class="homepage-meet-services">CONHEÇA NOSSOS SERVIÇOS</p>
+    </div>
+
+        
+
         <div style="text-align: center;">
             <div class="image-container">
-                <img src="Imagens/image_2.png" alt="" class="imagem">
-                <p style="font-size: 40px; color: white">TELEMEDICINA</p>
+                <img src="{% static 'home/img/image_2.png' %}" alt="" class="imagem">
+                <p class="telemedicina-undertext">TELEMEDICINA</p>
             </div>
             <div class="image-container">
-                <img src="Imagens/image_3.png" alt="" class="imagem">
-                <p style="font-size: 40px; color: white">PRONTUÁRIO DIGITAL</p>
+                <img src="{% static 'home/img/image_3.png' %}" alt="" class="imagem">
+                <p class="medical-record-undertext">PRONTUÁRIO DIGITAL</p>
             </div>
             <div class="image-container">
-                <img src="Imagens/image_4.png" alt="" class="imagem">
-                <p style="font-size: 40px; color: white">E-COMMERSE</p>
+                <img src="{% static 'home/img/image_4.png' %}" alt="" class="imagem">
+                <p class="ecommerce-undertext">E-COMMERSE</p>
             </div>
         </div>
         <div style="text-align: center; height: 50px;">
             <div class="image-container">
-                <img src="Imagens/image_5.png" alt="" class="imagem">
-                <p style="font-size: 40px; color: white">CHAT</p>
+                <img src="{% static 'home/img/image_5.png' %}" alt="" class="imagem">
+                <p class="chat-undertext">CHAT</p>
             </div>
             <div class="image-container">
-                <img src="Imagens/image_6.png" alt="" class="imagem">
-                <p style="font-size: 40px; color: white">BEM-ESTAR</p>
+                <img src="{% static 'home/img/image_6.png' %}" alt="" class="imagem">
+                <p class="well-being-undertext">BEM-ESTAR</p>
             </div>
             <div class="image-container">
-                <img src="Imagens/ret_prontuario.png" alt="" class="imagem">
-                <p style="font-size: 40px; color: white">AGENDA</p>
+                <img src="{% static 'home/img/ret_prontuario.png' %}" alt="" class="imagem">
+                <p class="schedule-undertext">AGENDA</p>
             </div>
         </div>
     </div>
+
     <div class="imagemMedicos">
-        <div style="text-align: center; margin-top: 735px;">
-            <h1 style="color: white; font-size: 80px;">
-                CONHEÇA NOSSAS ESPECIALIDADES</h1>
+
+        <h1 class="homepage-meet-doctors"> CONHEÇA NOSSAS ESPECIALIDADES</h1>
+
+        <div class="especialties-group">
+            <div class="column-specialties">
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                    <br>
+            </div>
+            <div class="column-specialties">
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                    <br>
+            </div>
+            <div class="column-specialties">
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                    <br>
+            </div>
+            <div class="column-specialties">
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                    <br>
+            </div>
+            <div class="column-specialties">
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                <p class="specialties-text"> ESPECIALIDADES</p>
+                    <br>
+            </div>
         </div>
-        <div class="espacoBranco">
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-                <br>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-                <br>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-                <br>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-                <br>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-            <p> ESPECIALIDADES</p>
-        </div>
-        <div class="barrabranca">
-        </div>
-        <div style="height: 640px;" class="espacoBranco">
+
+        <div class="barrabranca"> </div>
+
+        <div style="height: 640px;" class="signin-group">
 
             {% if messages %}
                 {% for message in messages %}
@@ -111,25 +129,28 @@
                 {% endfor %}
             {% endif %}
 
-            <div class=container1>
-                <div class=espacamento>
-                <form action="{% url 'realizar_cadastro' %}" method="post"> {% csrf_token %}
-                    <input type="text" class="barra" id='input-email-signup' name='input-email-signup'><span  class="fonte">INSIRA SEU MELHOR E-MAIL</span>
+            <div class="container1">
+
+                <div class="footer-logo"></div>
+
+                    <form action="{% url 'realizar_cadastro' %}" method="post"> {% csrf_token %}
+
+                        <label for='input-email-signup' class="input-email-signup-text">INSIRA SEU MELHOR E-MAIL</label>
+                        <input type="text" class="input-email-signup" id='input-email-signup' name='input-email-signup'>
+
+                        <label for='input-password-signup' class="input-password-signup-text">INSIRA SUA SENHA</label>
+                        <input type="text" class="input-password-signup" id='input-password-signup' name='input-password-signup'>
+
+                        <label for='input-confirm-password-signup' class="input-confirm-password-signup-text">REPITA SUA SENHA</label>
+                        <input type="text" class="input-confirm-password-signup" id='input-confirm-password-signup' name='input-confirm-password-signup'>
+
+                        <input type="submit" class="submit-signup"> 
+                    
+                    </form>
+
                 </div>
-                <div class=espacamento2>
-                    <input type="text" class="barra2" id='input-password-signup' name='input-password-signup'><span  class="fonte">INSIRA SUA SENHA</span>
-                </div>
-                <div class=espacamento3>
-                    <input type="text" class="barra3" id='input-confirm-password-signup' name='input-confirm-password-signup'><span  class="fonte">REPITA SUA SENHA</span>
-                </div>
-                <div class=espacamento4>
-                    <input type="submit" class="barra4">
-                </div>
-                </form>
-              </div>
-        <div class="areaRegistro">    
+            </div>
         </div>
-    </div>
     </div>
 
 {% endblock %}
