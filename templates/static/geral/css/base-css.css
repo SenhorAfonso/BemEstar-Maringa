@@ -6,6 +6,10 @@ body {
 
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 @font-face{
 font-family: "Oswald";
 src: url(Oswald-VariableFont_wght.ttf);

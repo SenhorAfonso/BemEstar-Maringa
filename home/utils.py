@@ -19,11 +19,38 @@ class DataBaseAcess():
 
 class ValidateAccess:
 
-    def __init__(self, request, email, password, confirm_password):
+    def __init__(self, request, email, password, confirm_password, cpf, sus, birthday):
         self.__request = request
         self.__email = email
         self.__password = password
         self.__confirm_password = confirm_password
+        self.__cpf = cpf
+        self.__sus = sus
+        self.__birtday = birthday
+
+    def validateCpf(self):
+        #TODO: conectar API para validar cpf
+        return True
+
+    def validadeSus(self):
+        if self.__sus[0] == 7:
+            return True
+        messages.add_message(self.__request, constants.ERROR, 'O número do cartão SUS entrado é inválido!')
+        return False
+    
+    def validateBirthday(self):
+        from datetime import datetime as dt
+
+        now_date = dt.now()
+        now_year = now_date.year
+
+        birthday = self.__birtday.split('-')
+
+        if birthday[0] > now_year:
+            messages.add_message(self.__request, constants.WARNING, 'O ano de nascimento é inválido!')
+            return False
+        return True
+
 
     def validate_password(self):
         import re
