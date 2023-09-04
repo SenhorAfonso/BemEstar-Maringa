@@ -1,0 +1,5 @@
+# chat/
+    leva para chat/find-doctors quando não houver chat ativo
+    leva para chat/active-chats quando há 
+
+

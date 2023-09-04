@@ -1,19 +1,20 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .utils import ValidateAccess, DataBaseAcess
+from .utils import ValidateAccess
+from general_utils import DataBaseAccess
 from django.contrib.messages import constants
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 def homepage(request): 
 
     return render(request, 'homepage.html')
 
 def realizar_cadastro(request):
-
     if request.method == 'POST':
-        client = DataBaseAcess().startConnnection()
-        db = client['bem-estar-maringa']
+        client = DataBaseAccess().startConnnection()
+        db = client['bem_estar_maringa']
         collection = db['users']
 
         user_name = request.POST.get('input-name-signup')
@@ -55,19 +56,38 @@ def realizar_cadastro(request):
 
             if user_signin.validate_email() and user_signin.validate_password():
                 
-                user = {
-                    'name' : user_name,
-                    'email' : user_email,
-                    'password' : user_password,
-                    'cpf' : user_cpf,
-                    'sus_card' : user_sus,
-                    'sex' : user_sex,
-                    'birthday' : user_bithdate
-                }
+                if User.objects.filter(username = user_name).first():
+                    messages.add_message(request, constants.WARNING, 'O nome entrado já está cadastrado!')
+                    print('nome já cadastrado')
+                    return redirect('/home')
+                else:
+                    user = {
+                        'name' : user_name,
+                        'email' : user_email,
+                        'password' : user_password,
+                        'cpf' : user_cpf,
+                        'sus_card' : user_sus,
+                        'sex' : user_sex,
+                        'birthday' : user_bithdate
+                    }
 
-                collection.insert_one(user)
-                print('usuário cadastrado')
-                return redirect('/home')
+                    collection.insert_one(user)
+                    
+                    user = User.objects.create_user(user_name,
+                                                   user_email, 
+                                                   user_password).save()
+
+                    print('usuário cadastrado')
+                    return redirect('/home')
+            else:
+                print('dados invalidos')
 
     client.close()
     return redirect('/home')
+
+def realizar_login(request):
+    pass
+
+
+
+

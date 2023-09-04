@@ -6,7 +6,7 @@
 {% block 'head' %}
     <meta charset="UTF-8">              
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Seja bem-vindo ao Bem-Estar Maringá</title>
     <link rel="stylesheet" type="text/css" href="{% static 'home/css/homepage.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald&display=swap">
     <script src="{% static 'home/js/homepage.js' %}"></script>
@@ -44,6 +44,7 @@
         
 
         <div style="text-align: center;">
+
             <div class="image-container">
                 <img src="{% static 'home/img/image_2.png' %}" alt="" class="imagem">
                 <p class="telemedicina-undertext">TELEMEDICINA</p>
@@ -71,6 +72,7 @@
                 <p class="schedule-undertext">AGENDA</p>
             </div>
         </div>
+
     </div>
 
     <div class="imagemMedicos">
@@ -122,7 +124,7 @@
 
         <div class="barrabranca"> </div>
 
-        <div class="signin-group">
+        <div class="signin-group" id="id-signin-group">
 
             {% if messages %}
                 {% for message in messages %}
@@ -132,11 +134,29 @@
 
             <div class="container1">
 
-                <div class="vertical-bar"></div>
+                <div class="vertical-bar" id='id-vertical-bar'></div>
 
-                <div class="footer-logo"></div>
+                <div class="footer-logo" id="id-footer-logo"></div>
 
-                    <form action="{% url 'realizar_cadastro' %}" method="post"> {% csrf_token %}
+                    <form action="{% url 'realizar_login' %}" method="post" class="login-form" id='id-login-form'> {% csrf_token %}
+
+                        <div>
+                            <label for='input-email-login' class="input-email-login-text">INSIRA SEU E-MAIL/CPF/CARTÃO SUS</label>
+                            <input type="email" class="input-email-login" id='input-email-login' name='input-email-login'>
+
+                            <label for='input-password-login' class="input-password-login-text">INSIRA SUA SENHA</label>
+                            <input type="password" class="input-password-login" id='input-password-login' name='input-password-login'>
+
+                            <input type="submit" class="submit-login">
+
+                            <div class="ask-to-signin" id="id-ask-to-signin">
+                                <p>Não possui uma conta?</p><a onclick="login_to_signin()" class="fake_link">  Cadastre-se agora!</a>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <form action="{% url 'realizar_cadastro' %}" method="post" class="signin-form" id='id-signin-form'> {% csrf_token %}
 
                         <label for='input-name-signup' class="input-name-signup-text">INSIRA SEU NOME</label>
                         <input type="text" class="input-name-signup" id='input-name-signup' name='input-name-signup'>
@@ -144,18 +164,23 @@
                         <label for='input-email-signup' class="input-email-signup-text">INSIRA SEU MELHOR E-MAIL</label>
                         <input type="text" class="input-email-signup" id='input-email-signup' name='input-email-signup'>
 
+                        
                         <label for='input-password-signup' class="input-password-signup-text">INSIRA SUA SENHA</label>
                         <input type="text" class="input-password-signup" id='input-password-signup' name='input-password-signup'>
 
+                        
                         <label for='input-confirm-password-signup' class="input-confirm-password-signup-text">CONFIRME SUA SENHA</label>
                         <input type="text" class="input-confirm-password-signup" id='input-confirm-password-signup' name='input-confirm-password-signup'>
 
+                        
                         <label for="input-cpf-signup" class="input-cpf-signup-text">DIGITE SEU CPF</label>
                         <input type="number" class="input-cpf-signup" id="input-cpf-signup" name="input-cpf-signup">
 
+                        
                         <label for="input-sus-card-signup" class="input-sus-card-signup-text">DIGITE SEU CARTÃO SUS</label>
                         <input type="number" class="input-sus-card-signup" id="input-sus-card-signup" name="input-sus-card-signup">
 
+                        
                         <label for="input-sex-signup" class="input-sex-signup-text">DIGITE SEU SEXO</label>
                         <div class="input-sex-signup-f"><input onclick="verifyCheckBox(1);" type="checkbox" id="input-sex-f-signup" name="input-sex-f-signup">F</div>
                         <div class="input-sex-signup-m"><input onclick="verifyCheckBox(2);" type="checkbox" id="input-sex-m-signup" name="input-sex-m-signup">M</div>
@@ -163,6 +188,10 @@
                         
                         <label for="input-date-signup" class="input-date-signup-text">DIGITE SUA DATA DE NASCIMENTO</label>
                         <input class="input-date-signup" id="input-date-signup" name="input-date-signup" type="date"> 
+
+                        <div class="ask-to-login" id="id-ask-to-login">
+                            <p>Já possui uma conta?</p><a onclick="login_to_signin()" class="fake_link">  Log-in!</a>
+                        </div>
 
                         <input type="submit" class="submit-signup">
                     
