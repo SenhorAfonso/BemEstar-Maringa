@@ -26,7 +26,7 @@ src: url(Oswald-VariableFont_wght.ttf);
     color: rgb(0, 180, 0);
 }
 
-.alert-danger{
+{% comment %} .alert-danger{
     position: absolute;
     margin-left: 900px;
     margin-top: -60px;
@@ -35,6 +35,19 @@ src: url(Oswald-VariableFont_wght.ttf);
     border: 2px solid rgb(180, 0, 0);
     background-color: rgb(250, 200, 200);
     color: rgb(180, 0, 0);
+} {% endcomment %}
+
+.alert-danger{
+    position: relative;
+    top: 60px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 2px solid rgb(180, 0, 0);
+    background-color: rgb(250, 200, 200);
+    color: rgb(180, 0, 0);
+    width: 200px;
+    height: 20px;
+    left: -150px;
 }
 
 .alert-warning{

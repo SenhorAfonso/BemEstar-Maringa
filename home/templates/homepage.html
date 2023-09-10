@@ -128,7 +128,7 @@
 
             {% if messages %}
                 {% for message in messages %}
-                    <div class="{{ message.tags }}" style="top: 150px">{{ message }}</div>
+                    <div class="{{ message.tags }}">{{ message }}</div>
                 {% endfor %}
             {% endif %}
 
@@ -141,17 +141,20 @@
                     <form action="{% url 'realizar_login' %}" method="post" class="login-form" id='id-login-form'> {% csrf_token %}
 
                         <div>
+
                             <label for='input-email-login' class="input-email-login-text">INSIRA SEU E-MAIL/CPF/CARTÃO SUS</label>
-                            <input type="email" class="input-email-login" id='input-email-login' name='input-email-login'>
+                            <input type="text" class="input-email-login" id='input-email-cpf-sus-login' name='input-email-cpf-sus-login'>
 
                             <label for='input-password-login' class="input-password-login-text">INSIRA SUA SENHA</label>
                             <input type="password" class="input-password-login" id='input-password-login' name='input-password-login'>
 
-                            <input type="submit" class="submit-login">
-
+                            
                             <div class="ask-to-signin" id="id-ask-to-signin">
                                 <p>Não possui uma conta?</p><a onclick="login_to_signin()" class="fake_link">  Cadastre-se agora!</a>
                             </div>
+                            
+                            <input type="submit" class="submit-login">
+
                         </div>
 
                     </form>
@@ -185,6 +188,11 @@
                         <div class="input-sex-signup-f"><input onclick="verifyCheckBox(1);" type="checkbox" id="input-sex-f-signup" name="input-sex-f-signup">F</div>
                         <div class="input-sex-signup-m"><input onclick="verifyCheckBox(2);" type="checkbox" id="input-sex-m-signup" name="input-sex-m-signup">M</div>
                         <div class="input-sex-signup-o"><input onclick="verifyCheckBox(3);" type="checkbox" id="input-sex-o-signup" name="input-sex-o-signup">O</div>
+                        
+                        
+                        <label for="input-isdoctor-signup" class="input-isdoctor-signup-text">VOCÊ É UM PROFISSIONAL DE SAÚDE?</label>
+                        <div class="input-isdoctor-signup"><input onclick="isDoctor();" type="radio" id="input-isdoctor-signup" name="input-isdoctor-signup">sim</div>
+                        <div class="input-isnotdoctor-signup"><input onclick="isDoctor();" type="radio" id="input-isnotdoctor-signup" name="input-isnotdoctor-signup">não</div>
                         
                         <label for="input-date-signup" class="input-date-signup-text">DIGITE SUA DATA DE NASCIMENTO</label>
                         <input class="input-date-signup" id="input-date-signup" name="input-date-signup" type="date"> 

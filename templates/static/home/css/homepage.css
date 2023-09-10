@@ -203,7 +203,6 @@ h3{
     margin-top: 40px;
     height: 550px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .signin-form {
@@ -422,6 +421,37 @@ h3{
     font-family: Oswald;
 }
 
+.input-isdoctor-signup-text {
+    font-family: Oswald;
+	position:absolute;
+	left:750px;
+	top: 760px;
+    width: 350px;
+	border-radius: 20px;
+    font-size: 25px;
+
+}
+
+.input-isdoctor-signup {
+    font-family: Oswald;
+	position:absolute;
+	left:1100px;
+	top: 760px;
+    width: 80px;
+	border-radius: 20px;
+    font-size: 25px;
+}
+
+.input-isnotdoctor-signup {
+    font-family: Oswald;
+	position:absolute;
+	left:1170px;
+	top: 760px;
+    width: 80px;
+	border-radius: 20px;
+    font-size: 25px;
+}
+
 .submit-signup {
     font-family: Oswald;
     background-color: rgb(72, 151, 81);
@@ -429,7 +459,7 @@ h3{
 	height: 40px;
 	position:absolute;
 	left:750px;
-	top:760px;
+	top:810px;
 	border-radius: 20px;
     font-size: 25px;
     color: rgb(255, 255, 255);
@@ -504,7 +534,7 @@ h3{
 .ask-to-login {
     position: relative;
     left: 730px;
-    top: 65px;
+    top: 115px;
     color: rgb(220, 60, 60)
 }
 

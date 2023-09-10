@@ -9,15 +9,33 @@
 
 {% block 'body' %}
 
-    {% for key_con, value_con in active_chat.items %}
+    {{active_chat}}
+
+    {% comment %} for element in chat:
+    for key, value in element.items():
+        if value == 'paciente feliz':
+            print(f'PACIENTE: {element["message"]}')
+        else:
+            print(f'MÉDICO: {element["message"]}') {% endcomment %}
+
+    {% for element in chat %}
+        {% if element.user == 'paciente feliz' %}
+            <p style="color:coral">{{ element.message }}</p>
+        {% else %}
+            <p style="color:darkkhaki">{{ element.message }}</p>
+        {% endif %}
+    {% endfor %}
+        
+
+    {% comment %} {% for key_con, value_con in active_chat.items %}
         {% for key, value in value_con.items %}
-            {% if key == 'sent' %}
-                <p style="color:coral">{{value}}</p>
+            {% if True in value.values %}
+                
             {% else %}
                 <p style="color:darkkhaki">{{value}}</p>
             {% endif %}
         {% endfor %}
-    {% endfor %}
+    {% endfor %} {% endcomment %}
 
     {% comment %} <div style="display: grid; font-size: larger; color: rgb(255, 255, 255); margin-left:80px;">
         <p>teste</p>
@@ -25,11 +43,11 @@
         <p>teste</p>
         <p>teste</p>
     </div> 
+    {% endcomment %}
 
     <form action="" method="post"> {% csrf_token %}
         <input type="text" name="input-chat-user">
         <input type="submit" >
     </form>
-    {% endcomment %}
 
 {% endblock %}

@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .utils import ValidateAccess
+from .utils import ValidateAccess, Patient
 from general_utils import DataBaseAccess
 from django.contrib.messages import constants
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 def homepage(request): 
 
@@ -26,9 +27,14 @@ def realizar_cadastro(request):
         user_sex_f = request.POST.get('input-sex-f-signup')
         user_sex_m = request.POST.get('input-sex-m-signup')
         user_bithdate = request.POST.get('input-date-signup')
+        isDoctor = request.POST.get('input-isdoctor-signup')
+        isNotDoctor = request.POST.get('input-isnotdoctor-signup')
 
+        #TODO: colocar no HTML um botão para diferenciar cadastro de médico do cadastro de paciente
         #TODO: tratar os dados de entrada usando javascript e enviar as respostas para o python via API
 
+        userIsDoctor = True if isDoctor == 'on' else False
+            
         if user_sex_f == 'on':
             user_sex = 'F'
         elif user_sex_m == 'on':
@@ -36,7 +42,11 @@ def realizar_cadastro(request):
         else:
             user_sex = 'O'
 
-        if collection.count_documents({'email' : user_email}) > 0:
+        if len(user_name.split(' ')) == 1:
+            messages.add_message(request, constants.ERROR, 'Insira seu nome completo!')
+            return redirect('/home')
+
+        elif collection.count_documents({'email' : user_email}) > 0:
             messages.add_message(request, constants.WARNING, 'O e-mail entrado já está cadastrado!')
             print('O e-mail entrado já está cadastrado!')
             return redirect('/home')
@@ -61,21 +71,31 @@ def realizar_cadastro(request):
                     print('nome já cadastrado')
                     return redirect('/home')
                 else:
-                    user = {
-                        'name' : user_name,
-                        'email' : user_email,
-                        'password' : user_password,
-                        'cpf' : user_cpf,
-                        'sus_card' : user_sus,
-                        'sex' : user_sex,
-                        'birthday' : user_bithdate
+
+                    user = Patient(name = user_name,
+                                    email = user_email,
+                                    password = user_password,
+                                    cpf = user_cpf,
+                                    sus = user_sus,
+                                    sex = user_sex,
+                                    birthdate = user_bithdate)
+                    
+                    user_data = {
+                        'name' : user.get_name(),
+                        'email' : user.get_email(),
+                        'password' : user.get_password(),
+                        'cpf' : user.get_cpf(),
+                        'sus_card' : user.get_sus(),
+                        'sex' : user.get_sex(),
+                        'birthday' : user.get_birthdate(),
+                        'isDoctor' : userIsDoctor
                     }
 
-                    collection.insert_one(user)
+                    collection.insert_one(user_data)
                     
-                    user = User.objects.create_user(user_name,
-                                                   user_email, 
-                                                   user_password).save()
+                    user_data = User.objects.create_user(user.get_name(),
+                                                   user.get_email(), 
+                                                   user.get_password()).save()
 
                     print('usuário cadastrado')
                     return redirect('/home')
@@ -86,7 +106,23 @@ def realizar_cadastro(request):
     return redirect('/home')
 
 def realizar_login(request):
-    pass
+
+    if request.method == 'GET':
+        return redirect('/home')
+
+    elif request.method == 'POST':
+
+        login_input = request.POST.get('input-email-cpf-sus-login')
+        password_input = request.POST.get('input-password-login')
+
+        user = authenticate(username = login_input, password = password_input)
+        print(user)
+
+        if user:
+            login(request, user)
+            return redirect('/chat')
+        return HttpResponse('não autenticado')
+
 
 
 

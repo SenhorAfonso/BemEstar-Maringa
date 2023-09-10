@@ -14,8 +14,6 @@ function login_to_signin() {
     verticalBar = document.getElementById('id-vertical-bar');
     footerLogo = document.getElementById('id-footer-logo');
 
-
-
     if (window.getComputedStyle(formLogin).getPropertyValue('display') === 'block') {
         formLogin.style.display = 'none';
         formSignin.style.display = 'block';
@@ -73,6 +71,25 @@ function scrollDown() {
     console.log('oi');
     let mid = document.getElementById('input-name-signup')
     return mid.scrollIntoView();
+}
+
+function isDoctor() {
+    var isDoctor_check = document.getElementById('input-isdoctor-signup')
+    var isNotDoctor_check = document.getElementById('input-isnotdoctor-signup')
+
+    isDoctor_check.addEventListener("change", function() {
+        if (isDoctor_check.checked) {
+            isNotDoctor_check.checked = false;
+        }
+    });
+    
+    // Adiciona um ouvinte de eventos para o checkbox "isNotDoctor"
+    isNotDoctor_check.addEventListener("change", function() {
+        if (isNotDoctor_check.checked) {
+            isDoctor_check.checked = false;
+        }
+    });
+
 }
 
 function main() { 

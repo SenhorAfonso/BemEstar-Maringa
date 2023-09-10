@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import redirect
 
+from abc import ABC, abstractclassmethod
+
 class ValidateAccess:
 
     def __init__(self, request, email, password, confirm_password, cpf, sus, birthday):
@@ -38,7 +40,6 @@ class ValidateAccess:
             return False
         return True
 
-
     def validate_password(self):
         import re
 
@@ -51,7 +52,6 @@ class ValidateAccess:
         else:
             return True
         
-
     def validate_email(self):
         import re
 
@@ -62,4 +62,48 @@ class ValidateAccess:
             messages.add_message(self.__request, constants.ERROR, 'O e-mail é inválido!')
             return False
 
-        
+class Person(ABC):
+
+    def __init__(self, name, cpf, sex, birthdate):
+        self.__name = name
+        self.__cpf = cpf
+        self.__sex = sex
+        self.__birthdate = birthdate
+
+    def get_name(self):
+        return self.__name
+
+    def get_cpf(self):
+        return self.__cpf
+
+    def get_sex(self):
+        return self.__sex
+
+    def get_birthdate(self):
+        return self.__birthdate
+    
+class Patient(Person):
+
+    def __init__(self, name, email, password, cpf, sus, sex, birthdate):
+        super().__init__(name, cpf, sex, birthdate)
+        self.__email = email
+        self.__password = password
+        self.__sus = sus
+    
+    def get_email(self):
+        return self.__email
+
+    def get_password(self):
+        return self.__password
+    
+    def get_sus(self):
+        return self.__sus
+
+class Doctor(Person):
+
+    def __init__(self, name, email, password, cpf, sus, sex, birthdate, crm):
+        super().__init__(name, cpf, sex, birthdate)
+        self.__email = email
+        self.__password = password
+        self.__sus = sus
+        self.__crm = crm
