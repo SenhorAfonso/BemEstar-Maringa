@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseServerError
 from .utils import ValidateAccess, Patient
 from general_utils import DataBaseAccess
 from django.contrib.messages import constants
@@ -14,7 +14,12 @@ def homepage(request):
 
 def realizar_cadastro(request):
     if request.method == 'POST':
-        client = DataBaseAccess().startConnnection()
+
+        client = DataBaseAccess().startConnection()
+
+        if(isinstance(client, int)):
+            return HttpResponseServerError()
+    
         db = client['bem_estar_maringa']
         collection = db['users']
 
@@ -55,7 +60,7 @@ def realizar_cadastro(request):
             messages.add_message(request, constants.WARNING, 'O CPF entrado já está cadastrado!')
             print('O CPF já está cadastrado')
             return redirect('/home')
-        
+
         elif collection.count_documents({'cartao-sus' : user_sus}) > 0:
             messages.add_message(request, constants.WARNING, 'O cartão SUS entrado já está cadastrado!')
             print('cartão sus')

@@ -9,7 +9,7 @@ from general_utils import DataBaseAccess
 def chat(request):
     from datetime import datetime as dt
 
-    client = DataBaseAccess().startConnnection()
+    client = DataBaseAccess().startConnection()
     db = client['bem_estar_maringa']
     collection = db['chat']
 

@@ -17,17 +17,18 @@ class ValidateAccess:
         self.__sus = sus
         self.__birtday = birthday
 
-    def validateCpf(self):
-        #TODO: conectar API para validar cpf
-        return True
+    def validate_cpf(self):
+        from validate_docbr import CPF
 
-    def validadeSus(self):
+        return CPF().validate(self.__cpf)
+
+    def validade_sus(self):
         if self.__sus[0] == 7:
             return True
         messages.add_message(self.__request, constants.ERROR, 'O número do cartão SUS entrado é inválido!')
         return False
     
-    def validateBirthday(self):
+    def validate_birthday(self):
         from datetime import datetime as dt
 
         now_date = dt.now()
