@@ -18,3 +18,13 @@ class DataBaseAccess():
             return 500
         else:
             return client
+
+"""
+conn = DataBaseAccess().startConnection()
+
+db = conn['bem_estar_maringa']
+coll = db['users']
+
+for element in coll.find():
+    print(element)
+"""
