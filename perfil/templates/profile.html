@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'perfil/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'perfil/css/perfil.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Oswald:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/profile.css">
+    <title>Perfil</title>
+{% endblock %}
+
+{% block 'body' %}
+    <div class="content-container">
+        <div class="container-btn-exit">
+            <button class="btn-exit">
+                <img src="../img/image 13.png">
+                <p class="btn-exit-text">Voltar</p>
+            </button>
+        </div>
+        <main>
+            <div class="main-content">
+                <div class="profile-informations-container">
+                    <div class="profile-informations">
+                        <div class="profile-picture">
+                            <img src="../img/profile-pic.png" class="profile-image">
+                        </div>
+                        <div class="profile-data">
+                            <p class="profile-text">Isadora Marlene Monteiro</p>
+                            <p class="profile-text">Rua Pioneiro Rinzo Guinoza, 975</p>
+                            <p class="profile-text">194.950.747-54</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-options">
+                    <div class="profile-options-align">
+                        <div class="options-item prontuario">
+                            <div class="options-text">PRONTUÁRIO DIGITAL</div>
+                        </div>
+                        <div class="options-item continuo">
+                            <img class="options-image">
+                            <div class="options-text">USO CONTÍNUO</div>
+                        </div>
+                        <div class="options-item acessibilidade">
+                            <img class="options-image">
+                            <div class="options-text">ACESSIBILIDADE</div>
+                        </div>
+                        <div class="options-item historico">
+                            <img class="options-image">
+                            <div class="options-text">HISTÓRICO MÉDICO</div>
+                        </div>
+                        <div class="options-item plano">
+                            <img class="options-image">
+                            <div class="options-text">PLANO DE SAÚDE</div>
+                        </div>
+                        <div class="options-item perguntas">
+                            <img class="options-image">
+                            <div class="options-text">PERGUNTAS FREQUENTES</div>
+                        </div>
+                    </div>
+
+                    <div class="btn-emergency-mode">
+                        <div class="btn-emergency-mode-align">
+                            <p class="btn-emergency-mode-text">Modo Emergência</p>
+                            <div class="emergency-circle">
+                                <p class="emergency-circle-text">?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/profile.js"></script>
+{% endblock %}

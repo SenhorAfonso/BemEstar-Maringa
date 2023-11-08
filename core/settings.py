@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-n4c_183&5@x39^-vtv(e8d-%!z$38ky!v$wnc%fe2wr-91cmry
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.237.67']
+ALLOWED_HOSTS = ['192.168.237.67', '192.168.56.1']
 
 
 # Application definition
@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'djongo',
-    'chat'
+    'chat',
+    'bemestar',
+    'perfil'
 ]
 
 MIDDLEWARE = [
