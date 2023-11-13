@@ -8,18 +8,19 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 
-def homepage(request): 
 
+def homepage(request):
     return render(request, 'homepage.html')
+
 
 def realizar_cadastro(request):
     if request.method == 'POST':
 
         client = DataBaseAccess().startConnection()
 
-        if(isinstance(client, int)):
+        if (isinstance(client, int)):
             return HttpResponseServerError()
-    
+
         db = client['bem_estar_maringa']
         collection = db['users']
 
@@ -35,11 +36,11 @@ def realizar_cadastro(request):
         isDoctor = request.POST.get('input-isdoctor-signup')
         isNotDoctor = request.POST.get('input-isnotdoctor-signup')
 
-        #TODO: colocar no HTML um botão para diferenciar cadastro de médico do cadastro de paciente
-        #TODO: tratar os dados de entrada usando javascript e enviar as respostas para o python via API
+        # TODO: colocar no HTML um botão para diferenciar cadastro de médico do cadastro de paciente
+        # TODO: tratar os dados de entrada usando javascript e enviar as respostas para o python via API
 
         userIsDoctor = True if isDoctor == 'on' else False
-            
+
         if user_sex_f == 'on':
             user_sex = 'F'
         elif user_sex_m == 'on':
@@ -51,67 +52,88 @@ def realizar_cadastro(request):
             messages.add_message(request, constants.ERROR, 'Insira seu nome completo!')
             return redirect('/home')
 
-        elif collection.count_documents({'email' : user_email}) > 0:
-            messages.add_message(request, constants.WARNING, 'O e-mail entrado já está cadastrado!')
-            print('O e-mail entrado já está cadastrado!')
-            return redirect('/home')
+        users_list = [dict(x) for x in collection.find()]
 
-        elif collection.count_documents({'cpf' : user_cpf}) > 0:
-            messages.add_message(request, constants.WARNING, 'O CPF entrado já está cadastrado!')
-            print('O CPF já está cadastrado')
-            return redirect('/home')
+        for user_info in users_list:
+            for key, value in user_info.items():
+                if value == user_email:
+                    messages.add_message(request, constants.WARNING, 'O e-mail entrado já está cadastrado!')
+                    print('O e-mail entrado já está cadastrado!')
+                    return redirect('/home')
 
-        elif collection.count_documents({'cartao-sus' : user_sus}) > 0:
-            messages.add_message(request, constants.WARNING, 'O cartão SUS entrado já está cadastrado!')
-            print('cartão sus')
-            return redirect('/home')
-        
+                if value == user_cpf:
+                    messages.add_message(request, constants.WARNING, 'O CPF entrado já está cadastrado!')
+                    print('O CPF já está cadastrado')
+                    return redirect('/home')
+
+                if value == user_sus:
+                    messages.add_message(request, constants.WARNING, 'O cartão SUS entrado já está cadastrado!')
+                    print('cartão sus')
+                    return redirect('/home')
+
+        # elif collection.count_documents({'email' : user_email}) > 0:
+        #     messages.add_message(request, constants.WARNING, 'O e-mail entrado já está cadastrado!')
+        #     print('O e-mail entrado já está cadastrado!')
+        #     return redirect('/home')
+        #
+        #
+        # elif collection.count_documents({'cpf' : user_cpf}) > 0:
+        #     messages.add_message(request, constants.WARNING, 'O CPF entrado já está cadastrado!')
+        #     print('O CPF já está cadastrado')
+        #     return redirect('/home')
+        #
+        # elif collection.count_documents({'cartao-sus' : user_sus}) > 0:
+        #     messages.add_message(request, constants.WARNING, 'O cartão SUS entrado já está cadastrado!')
+        #     print('cartão sus')
+        #     return redirect('/home')
+
         else:
-            user_signin = ValidateAccess(request, user_email, user_password, user_confirm_password, user_cpf, user_sus, user_bithdate)
+            user_signin = ValidateAccess(request, user_email, user_password, user_confirm_password, user_cpf, user_sus,
+                                         user_bithdate)
 
             if user_signin.validate_email() and user_signin.validate_password():
-                
-                if User.objects.filter(username = user_name).first():
+
+                if User.objects.filter(username=user_name).first():
                     messages.add_message(request, constants.WARNING, 'O nome entrado já está cadastrado!')
                     print('nome já cadastrado')
                     return redirect('/home')
                 else:
 
-                    user = Patient(name = user_name,
-                                    email = user_email,
-                                    password = user_password,
-                                    cpf = user_cpf,
-                                    sus = user_sus,
-                                    sex = user_sex,
-                                    birthdate = user_bithdate)
-                    
+                    user = Patient(name=user_name,
+                                   email=user_email,
+                                   password=user_password,
+                                   cpf=user_cpf,
+                                   sus=user_sus,
+                                   sex=user_sex,
+                                   birthdate=user_bithdate)
+
                     user_data = {
-                        'name' : user.get_name(),
-                        'email' : user.get_email(),
-                        'password' : user.get_password(),
-                        'cpf' : user.get_cpf(),
-                        'sus_card' : user.get_sus(),
-                        'sex' : user.get_sex(),
-                        'birthday' : user.get_birthdate(),
-                        'isDoctor' : userIsDoctor
+                        'name': user.get_name(),
+                        'email': user.get_email(),
+                        'password': user.get_password(),
+                        'cpf': user.get_cpf(),
+                        'sus_card': user.get_sus(),
+                        'sex': user.get_sex(),
+                        'birthday': user.get_birthdate(),
+                        'isDoctor': userIsDoctor
                     }
 
                     collection.insert_one(user_data)
-                    
+
                     user_data = User.objects.create_user(user.get_name(),
-                                                   user.get_email(), 
-                                                   user.get_password()).save()
+                                                         user.get_email(),
+                                                         user.get_password()).save()
 
                     print('usuário cadastrado')
                     return redirect('/home')
             else:
                 print('dados invalidos')
 
-    client.close()
+        client.close()
     return redirect('/home')
 
-def realizar_login(request):
 
+def realizar_login(request):
     if request.method == 'GET':
         return redirect('/home')
 
@@ -120,15 +142,10 @@ def realizar_login(request):
         login_input = request.POST.get('input-email-cpf-sus-login')
         password_input = request.POST.get('input-password-login')
 
-        user = authenticate(username = login_input, password = password_input)
+        user = authenticate(username=login_input, password=password_input)
         print(user)
 
         if user:
             login(request, user)
             return redirect('/chat')
         return HttpResponse('não autenticado')
-
-
-
-
-
