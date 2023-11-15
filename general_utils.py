@@ -4,8 +4,8 @@ from pymongo.mongo_client import MongoClient
 class DataBaseAccess():
 
     def __init__(self):
-        self.__uri = "mongodb+srv://kds:WN0vteFwla4JRww3@cluster0.zomuhsm.mongodb.net/?retryWrites=true&w=majority"
-
+        # self.__uri = "mongodb+srv://kds:WN0vteFwla4JRww3@cluster0.zomuhsm.mongodb.net/?retryWrites=true&w=majority"
+        self.__uri = 'mongodb://127.0.0.1:27017/BEM-ESTAR-MARINGA'
     def startConnection(self):
         
         from pymongo.server_api import ServerApi

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block 'head' %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'chat/css/reset.css' %}"></link>
+    <link rel="stylesheet" href="{% static 'chat/css/preChat.css' %}"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Oswald:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/preChat.css"></ink>
+    <title>Pré chat</title>
+
+{% endblock %}
+
+{% block 'body' %}
+    
+    <div class="content-container">
+        <div class="container-btn-exit">
+            <button class="btn-exit">
+                <img src="../img/image 13.png">
+                <p class="btn-exit-text">Voltar</p>
+            </button>
+        </div>
+
+        <div class="content-container-2">
+            <div class="left-container">
+                <h2 class="left-container-h2">Filtrar por:</h2>
+    
+                <div class="select-container">
+                    <label class="select-label">Avalição</label>
+                    <select id="avaliacao-filtro" name="Escolha uma opção" class="select">
+                        <option value="op1">5 estrelas</option>
+                        <option value="op2">4 estrelas</option>
+                        <option value="op3">3 estrelas</option>
+                        <option value="op4">2 estrelas</option>
+                        <option value="op5">1 estrela</option>
+                    </select>
+                </div>
+    
+                <div class="select-container">
+                    <label class="select-label">Especialidade</label>
+                    <select id="avaliacao-filtro" name="Escolha uma opção" class="select">
+                        <option value="op1">Clínico Geral</option>
+                        <option value="op2">Proctologista</option>
+                        <option value="op3">Cirurgião</option>
+                        <option value="op4">Ortopedista</option>
+                    </select>
+                </div>
+            </div>
+    
+    
+    
+            <div class="right-container">
+    
+                <ul class="lista-medico">
+                  
+                    <li class="list-item">
+                      <a style="text-decoration: none; color: black;" href="/chat">
+                        <div class="item-image"></div>
+                        <div class="container-medico">
+                            <div class="meidico-infos">
+                                <div class="item-name">Hanz Chucutre</div>
+                                <div>Clínico Geral</div>
+                                <div>5 Estrelas</div>
+                            </div>
+                        </div>
+                        <div class="horario-atendimento">
+                            <div>Segunda-feira à quarta feira</div>
+                            <div>Das 7:00 às 12:00</div>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="list-item">
+                      <a style="text-decoration: none; color: black;" href="/chat">
+                        <div class="item-image"></div>
+                        <div class="container-medico">
+                            <div class="meidico-infos">
+                                <div class="item-name">Hanz Chucutre</div>
+                                <div>Clínico Geral</div>
+                                <div>5 Estrelas</div>
+                            </div>
+                        </div>
+                        <div class="horario-atendimento">
+                            <div>Segunda-feira à quarta feira</div>
+                            <div>Das 7:00 às 12:00</div>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="list-item">
+                      <a style="text-decoration: none; color: black;" href="/chat">
+                        <div class="item-image"></div>
+                        <div class="container-medico">
+                            <div class="meidico-infos">
+                                <div class="item-name">Hanz Chucutre</div>
+                                <div>Clínico Geral</div>
+                                <div>5 Estrelas</div>
+                            </div>
+                        </div>
+                        <div class="horario-atendimento">
+                            <div>Segunda-feira à quarta feira</div>
+                            <div>Das 7:00 às 12:00</div>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="list-item">
+                      <a style="text-decoration: none; color: black;" href="/chat">
+                        <div class="item-image"></div>
+                        <div class="container-medico">
+                            <div class="meidico-infos">
+                                <div class="item-name">Hanz Chucutre</div>
+                                <div>Clínico Geral</div>
+                                <div>5 Estrelas</div>
+                            </div>
+                        </div>
+                        <div class="horario-atendimento">
+                            <div>Segunda-feira à quarta feira</div>
+                            <div>Das 7:00 às 12:00</div>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="list-item">
+                      <a style="text-decoration: none; color: black;" href="/chat">
+                        <div class="item-image"></div>
+                        <div class="container-medico">
+                            <div class="meidico-infos">
+                                <div class="item-name">Hanz Chucutre</div>
+                                <div>Clínico Geral</div>
+                                <div>5 Estrelas</div>
+                            </div>
+                        </div>
+                        <div class="horario-atendimento">
+                            <div>Segunda-feira à quarta feira</div>
+                            <div>Das 7:00 às 12:00</div>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="list-item">
+                      <a style="text-decoration: none; color: black;" href="/chat">
+                        <div class="item-image"></div>
+                        <div class="container-medico">
+                            <div class="meidico-infos">
+                                <div class="item-name">Hanz Chucutre</div>
+                                <div>Clínico Geral</div>
+                                <div>5 Estrelas</div>
+                            </div>
+                        </div>
+                        <div class="horario-atendimento">
+                            <div>Segunda-feira à quarta feira</div>
+                            <div>Das 7:00 às 12:00</div>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="list-item">
+                      <a style="text-decoration: none; color: black;" href="/chat">
+                        <div class="item-image"></div>
+                        <div class="container-medico">
+                            <div class="meidico-infos">
+                                <div class="item-name">Hanz Chucutre</div>
+                                <div>Clínico Geral</div>
+                                <div>5 Estrelas</div>
+                            </div>
+                        </div>
+                        <div class="horario-atendimento">
+                            <div>Segunda-feira à quarta feira</div>
+                            <div>Das 7:00 às 12:00</div>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="list-item">
+                      <a style="text-decoration: none; color: black;" href="/chat">
+                        <div class="item-image"></div>
+                        <div class="container-medico">
+                            <div class="meidico-infos">
+                                <div class="item-name">Hanz Chucutre</div>
+                                <div>Clínico Geral</div>
+                                <div>5 Estrelas</div>
+                            </div>
+                        </div>
+                        <div class="horario-atendimento">
+                            <div>Segunda-feira à quarta feira</div>
+                            <div>Das 7:00 às 12:00</div>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="list-item">
+                      <a style="text-decoration: none; color: black;" href="/chat">
+                        <div class="item-image"></div>
+                        <div class="container-medico">
+                            <div class="meidico-infos">
+                                <div class="item-name">Hanz Chucutre</div>
+                                <div>Clínico Geral</div>
+                                <div>5 Estrelas</div>
+                            </div>
+                        </div>
+                        <div class="horario-atendimento">
+                            <div>Segunda-feira à quarta feira</div>
+                            <div>Das 7:00 às 12:00</div>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="list-item">
+                      <a style="text-decoration: none; color: black;" href="/chat">
+                        <div class="item-image"></div>
+                        <div class="container-medico">
+                            <div class="meidico-infos">
+                                <div class="item-name">Hanz Chucutre</div>
+                                <div>Clínico Geral</div>
+                                <div>5 Estrelas</div>
+                            </div>
+                        </div>
+                        <div class="horario-atendimento">
+                            <div>Segunda-feira à quarta feira</div>
+                            <div>Das 7:00 às 12:00</div>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="list-item">
+                      <a style="text-decoration: none; color: black;" href="/chat">
+                        <div class="item-image"></div>
+                        <div class="container-medico">
+                            <div class="meidico-infos">
+                                <div class="item-name">Hanz Chucutre</div>
+                                <div>Clínico Geral</div>
+                                <div>5 Estrelas</div>
+                            </div>
+                        </div>
+                        <div class="horario-atendimento">
+                            <div>Segunda-feira à quarta feira</div>
+                            <div>Das 7:00 às 12:00</div>
+                        </div>
+                      </a>
+                    </li>
+
+    
+
+
+                </ul>
+    
+            </div>
+        </div>
+    </div>
+{% endblock %}

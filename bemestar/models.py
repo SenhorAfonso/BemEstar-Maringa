@@ -1,3 +1,11 @@
 from django.db import models
 
-# Create your models here.
+class bemestar(models.Model):
+
+    image_src = models.TextField()
+    post_url = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = "entities_entity"
+

@@ -55,17 +55,21 @@
             </div>
             <div class="image-container">
                 <img src="{% static 'home/img/image_4.png' %}" alt="" class="imagem">
-                <p class="ecommerce-undertext">E-COMMERSE</p>
+                <p class="ecommerce-undertext">E-COMMERCE</p>
             </div>
-        {% comment %} </div>
-        <div style="text-align: center; height: 50px;"> {% endcomment %}
+        </div>
+        <div style="text-align: center; height: 50px;">
             <div class="image-container">
+              <a href="chat/encontrar-medicos">
                 <img src="{% static 'home/img/image_5.png' %}" alt="" class="imagem">
                 <p class="chat-undertext">CHAT</p>
+              </a>
             </div>
             <div class="image-container">
-                <img src="{% static 'home/img/image_6.png' %}" alt="" class="imagem">
-                <p class="well-being-undertext">BEM-ESTAR</p>
+                <a href="/bem-estar">
+                  <img src="{% static 'home/img/image_6.png' %}" alt="" class="imagem">
+                  <p class="well-being-undertext">BEM-ESTAR</p>
+                </a>
             </div>
             <div class="image-container">
                 <img src="{% static 'home/img/ret_prontuario.png' %}" alt="" class="imagem">
@@ -153,7 +157,7 @@
                                 <p>Não possui uma conta?</p><a onclick="login_to_signin()" class="fake_link">  Cadastre-se agora!</a>
                             </div>
                             
-                            <input type="submit" class="submit-login">
+                            <input type="submit" class="submit-login" id="submit">
 
                         </div>
 
@@ -195,14 +199,14 @@
                             <p>Já possui uma conta?</p><a onclick="login_to_signin()" class="fake_link">  Log-in!</a>
                         </div>
 
-                        <input type="submit" class="submit-signup">
+                        <input type="submit" class="submit-signup" id="submit-signup">
                     
                     </form>
 
                 </div>
             </div>
 
-            <div class="bottom-row"></div>
+            <div class="bottom-row" id="bottom-row"></div>
 
         </div>
     </div>

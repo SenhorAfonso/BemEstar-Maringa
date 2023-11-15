@@ -20,7 +20,6 @@ function login_to_signin() {
     } else{
         formLogin.style.display = 'block';
         formSignin.style.display = 'none'; 
-        console.log('tchau')
     }
 
     if (formLogin.style.display == 'none') {
@@ -36,8 +35,6 @@ function login_to_signin() {
 }
 
 function verifyCheckBox(index) {
-    
-    console.log(index);
     let sex_checkbox_f = document.getElementById('input-sex-f-signup');
     let sex_checkbox_m = document.getElementById('input-sex-m-signup');
     let sex_checkbox_o = document.getElementById('input-sex-o-signup');
@@ -68,8 +65,7 @@ function verifyPersonalInfo() {
 }
 
 function scrollDown() {
-    console.log('oi');
-    let mid = document.getElementById('input-name-signup')
+    let mid = document.getElementById('bottom-row')
     return mid.scrollIntoView();
 }
 

@@ -21,9 +21,14 @@ def chat(request):
     }
 
     collection.insert_one(msg)
-
     all_chat = list(collection.find())
 
-    print(all_chat)
+    return render(request, 'chatPage.html', context={'chat' : all_chat})
 
-    return render(request, 'chat.html', context={'chat' : all_chat})
+def chatativo(request):
+
+    return render(request, 'chatPageAtive.html')
+
+def encontrarmedicos(request):
+    
+    return render(request, 'preChat.html') 

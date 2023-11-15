@@ -18,10 +18,12 @@
 {% block 'body' %}
     <div class="container">
         <div class="container-btn-exit">
-            <button class="btn-exit">
-                <img src="../img/image 13.png">
+          <a href="/home" style="text-decoration: none;">
+            <button class="btn-exit" href="/home">
+                <img src="{% static 'geral/img/homebutton.png' %}">
                 <p class="btn-exit-text">Voltar</p>
             </button>
+          </a>
         </div>
         <main class="main-container">
             <ul class="list">
@@ -30,80 +32,57 @@
                         <h1 class="title-name">Alimentação Saudável</h1>
                         <div class="title-line"></div>
                     </div>
-                    
-                    <ul class="horizontal-list">
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                    </ul>
+
+                  <ul class="horizontal-list">
+                    {% for key, value in bemestardb.items %}
+                      {% if key == 'bemestar-alimentacao' %}
+                        {% for element in value %}
+                          <a href="{{element.post_link}}"><img class="horizontal-list-item" src="{{element.image_src}}" alt="" srcset=""></a>
+                            
+                        {% endfor %}
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
 
                 </li>
 
-
-
-
                 <li class="list-item">
                     <div class="title-name-line">
-                        <h1 class="title-name">Alimentação Saudável</h1>
+                        <h1 class="title-name">Exercícios em casa</h1>
                         <div class="title-line"></div>
                     </div>
                     
                     <ul class="horizontal-list">
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
+                      {% for key, value in bemestardb.items %}
+                        {% if key == 'bemestar-exercicios' %}
+                          {% for element in value %}
+                            <a href="{{element.post_link}}"><img class="horizontal-list-item" src="{{element.image_src}}" alt="" srcset=""></a>
+                              
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
                     </ul>
 
                 </li>
 
-
                 <li class="list-item">
                     <div class="title-name-line">
-                        <h1 class="title-name">Secso Seguro</h1>
+                        <h1 class="title-name">Desenvolvimento pessoal</h1>
                         <div class="title-line"></div>
                     </div>
                     
                     <ul class="horizontal-list">
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
-                        <li class="horizontal-list-item"></li>
+                      {% for key, value in bemestardb.items %}
+                        {% if key == 'bemestar-mental' %}
+                          {% for element in value %}
+                            <a href="{{element.post_link}}"><img class="horizontal-list-item" src="{{element.image_src}}" alt="" srcset=""></a>
+                              
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
                     </ul>
 
-                </li>
-
+                </li>\
 
             </ul>
         </main>

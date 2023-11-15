@@ -143,7 +143,6 @@ def realizar_login(request):
         password_input = request.POST.get('input-password-login')
 
         user = authenticate(username=login_input, password=password_input)
-        print(user)
 
         if user:
             login(request, user)

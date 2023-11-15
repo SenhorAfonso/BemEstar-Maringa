@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="{% static 'chat/css/chat.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald&display=swap">
+{% endblock %}
+
+{% block 'body' %}
+<button class="home-button">VOLTAR</button>
+
+
+<div class="container">
+  
+    <div class="conversas">
+        <span  class="texto">SUAS CONVERSAS ATIVAS</span>
+
+        <div>
+            <a href="ativo">
+              <button class="doctor-chat-background" >
+                <div class="medico"> </div>
+                <div class="vetical-bar"> </div>
+                <div class="horizontal-bar"> </div>
+                <span class="specialty" >Dermatologista </span>
+                <span class="doctor-name" >Dr. Anil Khumar </span>
+                <span class="chat-time" >2D </span>
+              </button>
+            </a>
+         </div>
+
+        <div>
+            <a href="ativo">
+              <button class="doctor-chat-background" >
+                <div class="medico"> </div>
+                <div class="vetical-bar"> </div>
+                <div class="horizontal-bar"> </div>
+                <span class="specialty" >Dermatologista </span>
+                <span class="doctor-name" >Dr. Anil Khumar </span>
+                <span class="chat-time" >2D </span>
+              </button>
+            </a>
+         </div>
+
+        <div>
+            <a href="ativo">
+              <button class="doctor-chat-background" >
+                <div class="medico"> </div>
+                <div class="vetical-bar"> </div>
+                <div class="horizontal-bar"> </div>
+                <span class="specialty" >Dermatologista </span>
+                <span class="doctor-name" >Dr. Anil Khumar </span>
+                <span class="chat-time" >2D </span>
+              </button>
+            </a>
+         </div>
+
+        <div>
+            <a href="ativo">
+              <button class="doctor-chat-background" >
+                <div class="medico"> </div>
+                <div class="vetical-bar"> </div>
+                <div class="horizontal-bar"> </div>
+                <span class="specialty" >Dermatologista </span>
+                <span class="doctor-name" >Dr. Anil Khumar </span>
+                <span class="chat-time" >2D </span>
+              </button>
+            </a>
+         </div>
+         
+
+
+         <div>
+          <a href="encontrar-medicos">
+            <button class="find-doctors" >
+                <p class="find-doctors-text">ENCONTRAR MAIS MÉDICOS</p>
+            </button>
+          </a>
+        </div>
+         
+    </div>
+</div>
+{% endblock %}
