@@ -58,17 +58,14 @@ def realizar_cadastro(request):
             for key, value in user_info.items():
                 if value == user_email:
                     messages.add_message(request, constants.WARNING, 'O e-mail entrado já está cadastrado!')
-                    print('O e-mail entrado já está cadastrado!')
                     return redirect('/home')
 
                 if value == user_cpf:
                     messages.add_message(request, constants.WARNING, 'O CPF entrado já está cadastrado!')
-                    print('O CPF já está cadastrado')
                     return redirect('/home')
 
                 if value == user_sus:
                     messages.add_message(request, constants.WARNING, 'O cartão SUS entrado já está cadastrado!')
-                    print('cartão sus')
                     return redirect('/home')
 
         # elif collection.count_documents({'email' : user_email}) > 0:
